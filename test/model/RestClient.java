@@ -22,7 +22,7 @@ public class RestClient {
 	
 	public static void main(String[] args) throws ClientProtocolException, IOException {
 		DefaultHttpClient client = new DefaultHttpClient();
-		HttpPost post = new HttpPost("http://game-chaat.appspot.com/activity/postActivity.json");
+		HttpPost post = new HttpPost("http://localhost:8888/activity/postActivity.json"); //"http://game-chaat.appspot.com/activity/postActivity.json");
 		
 		Activity activity = new Activity();
 		activity.startTimeStamp = ""+System.currentTimeMillis();
@@ -55,6 +55,11 @@ public class RestClient {
 			System.out.println(  "Found error in endTimeStamp " + e);
 		}
 		try {
+			json.put("activeStatus", activity.getActiveStatus());
+		} catch (JSONException e) {
+			System.out.println(  "Found error in endTimeStamp " + e);
+		}
+		/*try {
 			
 			JSONArray array = new JSONArray();
 			for (AccelerometerData accelerometerData : activity.getData()) {
@@ -66,7 +71,7 @@ public class RestClient {
 			json.put("data", array);
 		} catch (JSONException e) {
 			System.out.println(  "Found error in data " + e);
-		}
+		}*/
 
 		String jsonString = json.toString();
 		System.out.println(jsonString);
