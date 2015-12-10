@@ -17,19 +17,22 @@
 package conf;
 
 
-import ninja.AssetsController;
+import controllers.ApplicationController;
+import controllers.RestController;
 import ninja.Router;
 import ninja.application.ApplicationRoutes;
-import controllers.ApplicationController;
 
 public class Routes implements ApplicationRoutes {
 
     @Override
     public void init(Router router) {  
         
-        router.GET().route("/").with(ApplicationController.class, "index");
-        router.GET().route("/hello_world.json").with(ApplicationController.class, "helloWorldJson");
         
+    	router.GET().route("/").with(ApplicationController.class, "index");
+        router.GET().route("/hello_world.json").with(ApplicationController.class, "helloWorldJson");
+
+        router.POST().route("/activity/postActivity.json").with(RestController.class, "postActivity");
+        router.GET().route("/activity/activity.json").with(RestController.class, "getActivity");
  
         ///////////////////////////////////////////////////////////////////////
         // Assets (pictures / javascript)
