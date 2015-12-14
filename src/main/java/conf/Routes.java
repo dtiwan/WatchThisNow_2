@@ -19,6 +19,7 @@ package conf;
 
 import controllers.ApplicationController;
 import controllers.RestController;
+import ninja.AssetsController;
 import ninja.Router;
 import ninja.application.ApplicationRoutes;
 
@@ -37,12 +38,12 @@ public class Routes implements ApplicationRoutes {
         ///////////////////////////////////////////////////////////////////////
         // Assets (pictures / javascript)
         ///////////////////////////////////////////////////////////////////////    
-        /*router.GET().route("/assets/webjars/{fileName: .*}").with(AssetsController.class, "serveWebJars");
+        /*router.GET().route("/assets/webjars/{fileName: .*}").with(AssetsController.class, "serveWebJars");*/
         router.GET().route("/assets/{fileName: .*}").with(AssetsController.class, "serveStatic");
         
         ///////////////////////////////////////////////////////////////////////
         // Index / Catchall shows index page
-        ///////////////////////////////////////////////////////////////////////*/
+        ///////////////////////////////////////////////////////////////////////
         router.GET().route("/.*").with(ApplicationController.class, "index");
     }
 

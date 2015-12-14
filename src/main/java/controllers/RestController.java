@@ -62,7 +62,7 @@ public class RestController {
 			pmf.close();
 		}
 		
-		return Results.json().render(activity);
+		return Results.json().html().render(activity);
 
 	}
 }

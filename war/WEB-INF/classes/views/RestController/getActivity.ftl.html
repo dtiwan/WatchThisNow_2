@@ -1,0 +1,14 @@
+<#import "../layout/defaultLayout.ftl.html" as layout> 
+<@layout.myLayout "Home page">    
+
+${activity}
+<BR/>
+<#if activity.activeStatus == 'sleep'>
+	<img src="/assets/images/room-512.PNG" />
+<#elseif activity.activeStatus == 'active'>
+	<img src="/assets/images/1450079022_ping_pong.png" />
+<#else>
+	<img src="/assets/images/4-512.png" />
+</#if>
+
+</@layout.myLayout>

@@ -45,4 +45,16 @@ public class Activity {
 		this.activeStatus = activeStatus;
 	}
 	
+	@Override
+	public String toString() {
+		StringBuilder sBuilder = new StringBuilder();
+		sBuilder.append("{")
+				.append("\"startTimeStamp\":\""+startTimeStamp+"\", ")
+				.append("\"endTimeStamp\":\""+endTimeStamp+"\", ")
+				.append("\"activeStatus\":\""+activeStatus+"\", ")
+				.append("\"data\":\""+data+"\"")
+				.append("}");
+		return sBuilder.toString();
+	}
+	
 }
